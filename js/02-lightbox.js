@@ -3,10 +3,7 @@ import { galleryItems } from './gallery-items.js';
 
 const containerImgs = document.querySelector('.gallery');
 
-
 const marcup = galleryItems.map(({description: desc, preview: prev, original: org}) => `
-
-
 <li class="gallery__item">
    <a class="gallery__link" href="${org}">
       <img class="gallery__image" src="${prev}" alt="${desc}" />
