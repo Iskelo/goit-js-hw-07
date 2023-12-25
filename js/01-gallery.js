@@ -23,25 +23,29 @@ function onClick(event) {
 	event.preventDefault();
 	const {source} = event.target.dataset;
 	const {alt} = event.target;
+	const options = {
+		onShow: (instance) => {
+			window.addEventListener('keydown', handleKeyDown);
+		 },
+		 onClose: (instance) => {
+			window.removeEventListener('keydown', handleKeyDown);
+		 }
+	}
+
 	if (!event.target.classList.contains('gallery__image')) {
 		return;
 	}
+
 	const instance = basicLightbox.create(`
 	<img
 		class="gallery__image"
 		src="${source}"
 		alt="${alt}"
 	/>
-	`,{
-		onShow: (instance) => {
-			window.addEventListener('keydown', handleKeyDown);
-		 },
-		 onClose: (instance) => {
-			window.removeEventListener('keydown', handleKeyDown);
-		 },
-	});
+	`, options);
 
 	instance.show()
+	
 	function handleKeyDown(evt) {
 		if (evt.key === 'Escape') {
 		  instance.close();
