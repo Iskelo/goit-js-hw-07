@@ -23,14 +23,13 @@ function onClick(event) {
 	event.preventDefault();
 	const {source} = event.target.dataset;
 	const {alt} = event.target;
-	// console.log(event.target)
 	if (!event.target.classList.contains('gallery__image')) {
 		return;
 	}
 	const instance = basicLightbox.create(`
 	<img
 		class="gallery__image"
-		src="${source}"	
+		src="${source}"
 		alt="${alt}"
 	/>
 	`,{
@@ -40,7 +39,6 @@ function onClick(event) {
 		 onClose: (instance) => {
 			window.removeEventListener('keydown', handleKeyDown);
 		 },
-
 	});
 
 	instance.show()
