@@ -15,7 +15,8 @@ containerImgs.insertAdjacentHTML('beforeend', marcup.join(''));
 
 const options = {
 	captionsData: 'alt',
-	captionDelay: 250,	
- };
+	captionDelay: 250,
+   captionPosition: 'bottom'
+};
 
 const lightbox = new SimpleLightbox('.gallery a', options);
